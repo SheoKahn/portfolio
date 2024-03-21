@@ -1,6 +1,7 @@
 {
 	"name": "sheokahn.com",
 	"type": "module",
+	"license": "MIT",
 	"version": "0.0.1",
 	"author": {
 		"name": "José L Silv",
