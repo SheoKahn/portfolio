@@ -45,9 +45,9 @@ This repository follows a structured format with the following folders and files
 ├── public/
 │   └── favicon.svg
 ├── src/
-│   └── env.d.ts
-│   └── layouts
-│       └── Layout.astro
+│   ├── env.d.ts
+│   ├── layouts/
+│   │   └── Layout.astro
 │   └── pages/
 │       └── index.astro
 ├── astro.config.ts
