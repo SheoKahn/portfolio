@@ -8,6 +8,9 @@ const config: Config = {
 			fontFamily: {
 				sans: ['Onest', ...fontFamily.sans],
 			},
+			gridTemplateColumns: {
+				lines: '185px 49.59px 236.41px 1fr',
+			},
 		},
 	},
 	plugins: [],
