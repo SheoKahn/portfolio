@@ -75,6 +75,6 @@ This website is built using the following stack:
 -  🚧 [Astro](https://astro.build): A modern static site builder.
 -  📑 [TypeScript](https://www.typescriptlang.org): Provides enhanced syntax for JavaScript.
 -  💅 [Tailwind CSS](https://tailwindcss.com): Utilized for styling and design.
--  ✒️ [Font Onest](https://fontsource.org/fonts/onest) Font for typography.
+-  ✒️ [Font Onest](https://fontsource.org/fonts/onest): Font for typography.
 
 Feel free to explore and contribute! 😊
