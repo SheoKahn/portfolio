@@ -1,4 +1,4 @@
-# 🏡 sheokahn.com
+# 🏡 Portfolio
 
 Welcome to my personal website repository!
 
@@ -11,13 +11,13 @@ To get started with this project, follow these steps:
 1. **Clone the repository**:
 
    ```
-   git clone https://github.com/SheoKahn/sheokahn.com.git
+   git clone https://github.com/SheoKahn/portfolio.git
    ```
 
 2. **Navigate to the project directory**:
 
    ```
-   cd sheokahn.com
+   cd portfolio
    ```
 
 3. **Install dependencies**:
@@ -41,11 +41,13 @@ To get started with this project, follow these steps:
 This repository follows a structured format with the following folders and files:
 
 ```text
-/sheokahn.com
+/portfolio
 ├── public/
 │   └── favicon.svg
 ├── src/
 │   └── env.d.ts
+│   └── layouts
+│       └── Layout.astro
 │   └── pages/
 │       └── index.astro
 ├── astro.config.ts
@@ -73,5 +75,6 @@ This website is built using the following stack:
 -  🚧 [Astro](https://astro.build): A modern static site builder.
 -  📑 [TypeScript](https://www.typescriptlang.org): Provides enhanced syntax for JavaScript.
 -  💅 [Tailwind CSS](https://tailwindcss.com): Utilized for styling and design.
+-  ✒️ [Font Onest](https://fontsource.org/fonts/onest) Font for typography.
 
 Feel free to explore and contribute! 😊
