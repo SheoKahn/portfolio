@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sheokahn.com/
+
+# Sitemaps
+Sitemap: https://sheokahn.com/sitemap-index.xml
