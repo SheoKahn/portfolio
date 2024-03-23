@@ -1,11 +1,12 @@
 ---
-import '@fontsource/onest'
-
-interface Props {
-	title: string
+const SEO = {
+	title: 'José Luis Silva | Portfolio',
+	description:
+		'Welcome to my portfolio! Here you can find a showcase of my work and experience as a software developer.',
+	username: 'SheoKahn',
+	canonical: 'https://sheokahn.com/',
+	image: '/og-image.png',
 }
-
-const { title } = Astro.props
 ---
 
 <!doctype html>
@@ -15,8 +16,22 @@ const { title } = Astro.props
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<meta name="description" content="Astro description" />
+		<title>{SEO.title}</title>
+		<meta name="description" content={SEO.description} />
+		<link rel="canonical" href={SEO.canonical} />
+		<meta name="twitter:site" content={`@${SEO.username}`} />
+		<meta name="twitter:creator" content={`@${SEO.username}`} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={SEO.title} />
+		<meta name="twitter:description" content={SEO.description} />
+		<meta name="twitter:image" content={new URL(SEO.image, SEO.canonical)} />
+		<meta name="og:image" content={new URL(SEO.image, SEO.canonical)} />
+		<meta name="og:title" content={SEO.title} />
+		<meta name="og:description" content={SEO.description} />
+		<meta name="og:url" content={SEO.canonical} />
+		<meta name="og:site_name" content={SEO.title} />
+		<meta name="og:type" content="website" />
+		<meta name="og:locale" content="en" />
 	</head>
 	<body>
 		<slot />
