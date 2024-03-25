@@ -4,6 +4,8 @@ Welcome to my personal website repository!
 
 This README provides an overview of the project structure, available commands, and the tech stack used.
 
+![previewing](./public/og-image.png)
+
 ## 🚀 Getting Started
 
 To get started with this project, follow these steps:
