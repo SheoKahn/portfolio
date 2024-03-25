@@ -8,6 +8,9 @@
 		"email": "joseluis@sheokahn.com",
 		"url": "https://sheokahn.com/"
 	},
+	"imports": {
+		"#*": "./src/*"
+	},
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
