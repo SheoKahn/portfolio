@@ -2,7 +2,7 @@
 	"name": "sheokahn.com",
 	"type": "module",
 	"license": "MIT",
-	"version": "0.0.1",
+	"version": "0.1.1",
 	"author": {
 		"name": "José L Silv",
 		"email": "joseluis@sheokahn.com",
@@ -19,8 +19,8 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"astro": "4.5.8",
-		"@astrojs/check": "0.5.9",
+		"astro": "4.12.2",
+		"@astrojs/check": "0.8.2",
 		"@astrojs/tailwind": "5.1.0",
 		"@fontsource/onest": "5.0.3",
 		"tailwindcss": "3.4.1",
