@@ -3,38 +3,40 @@ import Layout from '#layouts/Layout.astro'
 ---
 
 <Layout title="José Luis Silva | Portfolio">
-	<main class="grid place-content-center min-h-full">
+	<main>
 		<article>
-			<header class="grid grid-cols-lines">
-				<div class="col-start-1">
-					<p class="text-2xl tracking-wider">me</p>
-					<hr />
-					<div class="line down"></div>
+			<header>
+				<div id="about">
+					<p>me</p>
+					<hr class="vertical-line" />
+					<div class="grouping-lines down"></div>
 				</div>
-				<div class="col-start-3 col-span-full">
-					<p class="text-2xl tracking-wider">website</p>
-					<hr />
-					<div class="line down"></div>
+				<div id="projects">
+					<p>website</p>
+					<hr class="vertical-line" />
+					<div class="grouping-lines down"></div>
 				</div>
 			</header>
 
-			<h1 class="grid grid-cols-lines text-5xl tracking-wider">
+			<h1>
 				<span id="name">joseluis</span>
 				<span id="at">@</span>
 				<span id="nick">sheokahn</span>
 				<span id="tlg">.com</span>
 			</h1>
 
-			<footer class="grid grid-cols-lines">
-				<div class="col-start-2 col-span-2">
-					<div class="line up h-10"></div>
-					<hr />
-					<p class="mt-3 text-2xl tracking-wider">social media</p>
+			<footer>
+				<div id="email-right" class="grouping-lines up"></div>
+				<div id="email-left" class="grouping-lines up"></div>
+				<div id="social-media">
+					<div class="grouping-lines up"></div>
+					<hr class="vertical-line" />
+					<p>social media</p>
 				</div>
-				<div class="col-span-full -top-1/2">
-					<div class="line up h-28"></div>
-					<hr />
-					<p class="mt-2 text-2xl tracking-wider">email</p>
+				<div id="email">
+					<div class="grouping-lines up"></div>
+					<hr class="vertical-line" />
+					<p>email</p>
 				</div>
 			</footer>
 		</article>
@@ -42,6 +44,11 @@ import Layout from '#layouts/Layout.astro'
 </Layout>
 
 <style>
+	main {
+		display: grid;
+		min-height: 100dvh;
+		place-content: center;
+	}
 	article {
 		-webkit-touch-callout: none /* iOS Safari */;
 		-webkit-user-select: none /* Safari */;
@@ -50,38 +57,102 @@ import Layout from '#layouts/Layout.astro'
 		-ms-user-select: none /* Internet Explorer/Edge */;
 		user-select: none
 			/* Non-prefixed version; currently supported by Chrome and Opera */;
+
+		display: grid;
+		grid-template-rows: 102px 48px 150px;
+
+		& > header {
+			display: grid;
+			grid-template-columns: 185px 50px 236px 116px;
+
+			& > div#projects {
+				grid-column: 3 / span 2;
+			}
+		}
+
+		& > h1 {
+			display: grid;
+			grid-template-columns: 185px 50px 236px 116px;
+		}
+
+		& > footer {
+			display: grid;
+			margin-top: 5px;
+			grid-template-rows: repeat(2, 1fr);
+			grid-template-columns: 185px 50px 236px 116px;
+
+			& > div#social-media {
+				grid-column: 2 / span 2;
+			}
+			& > div#email {
+				grid-row: 2;
+				grid-column: span 4;
+			}
+		}
 	}
-	article > header > div {
-		position: relative;
-		grid-row-start: 1;
-		text-align: center;
-	}
-	article > footer > div {
-		position: relative;
+
+	div#about,
+	div#email,
+	div#projects,
+	div#social-media {
 		text-align: center;
 	}
 
-	hr {
-		height: 12px;
-		width: 2px;
-		border-width: 0;
-		position: absolute;
+	p {
+		font-size: 24px;
+		line-height: 32px;
+	}
+
+	p,
+	h1 {
+		letter-spacing: 0.05em;
+	}
+
+	h1 {
+		font-size: 48px;
+		line-height: 1;
+	}
+
+	hr.vertical-line {
 		left: 50%;
-		--tw-bg-opacity: 1;
-		background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+		width: 3px;
+		height: 10px;
+		border-width: 0;
+		position: relative;
+		background-color: black;
 	}
 
-	.line {
-		border-width: 2px;
-		--tw-border-opacity: 1;
-		border-color: rgb(0 0 0 / var(--tw-border-opacity));
+	.grouping-lines {
+		height: 60px;
+		border-width: 3px;
+		border-style: solid;
+		border-color: black;
+
+		&.down {
+			border-bottom-width: 0;
+		}
+		&.up {
+			border-top-width: 0;
+		}
 	}
-	.line.down {
-		height: 2.5rem;
-		margin-top: 0.75rem;
-		border-bottom-width: 0px;
+
+	#email-left,
+	#email-right {
+		height: 100%;
 	}
-	.line.up {
-		border-top-width: 0px;
+
+	#email-right {
+		grid-row: 1;
+		grid-column: 1;
+		border-top-width: 0;
+		border-right-width: 0;
+		border-bottom-width: 0;
+	}
+	#email-left {
+		grid-row: 1;
+		grid-column: 4;
+		border-top-width: 0;
+		border-left-width: 0;
+		border-bottom-width: 0;
 	}
 </style>
