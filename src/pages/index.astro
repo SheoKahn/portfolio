@@ -187,9 +187,7 @@ import Layout from '#layouts/Layout.astro'
 		elementsToUpdate: string[] = []
 	): void => {
 		elementsToUpdate.forEach((el) => {
-			if (elements[el] !== null && elements[el] !== undefined) {
-				elements[el].dataset.visible = visible
-			}
+			if (elements[el]) elements[el].dataset.visible = visible
 		})
 	}
 
