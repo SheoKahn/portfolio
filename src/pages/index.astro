@@ -51,21 +51,34 @@ import Layout from '#layouts/Layout.astro'
 		min-height: 100dvh;
 		place-content: center;
 	}
+
 	article {
-		-webkit-touch-callout: none /* iOS Safari */;
-		-webkit-user-select: none /* Safari */;
-		-khtml-user-select: none /* Konqueror HTML */;
-		-moz-user-select: none /* Firefox */;
-		-ms-user-select: none /* Internet Explorer/Edge */;
-		user-select: none
-			/* Non-prefixed version; currently supported by Chrome and Opera */;
+		--font-size-p: 24px;
+		--font-size-h1: 48px;
+		--line-width: 4px;
+		--line-height-h1: 1;
+		--line-height-p: 32px;
+		--opacity-visible: 1;
+		--opacity-hidden: 0.1;
+		--transition-duration: 0.5s;
+		--transition-timing-function: ease;
+		--grid-template-columns: 185px 50px 236px 116px;
+		--grid-template-rows-header: 102px 48px 150px;
+		--grid-template-rows-footer: repeat(2, 1fr);
+
+		-webkit-touch-callout: none; /* iOS Safari */
+		-webkit-user-select: none; /* Safari */
+		-khtml-user-select: none; /* Konqueror HTML */
+		-moz-user-select: none; /* Firefox */
+		-ms-user-select: none; /* Internet Explorer/Edge */
+		user-select: none; /* Non-prefixed version; currently supported by Chrome and Opera */
 
 		display: grid;
-		grid-template-rows: 102px 48px 150px;
+		grid-template-rows: var(--grid-template-rows-header);
 
 		& > header {
 			display: grid;
-			grid-template-columns: 185px 50px 236px 116px;
+			grid-template-columns: var(--grid-template-columns);
 
 			& > div#projects {
 				grid-column: 3 / span 2;
@@ -74,14 +87,14 @@ import Layout from '#layouts/Layout.astro'
 
 		& > h1 {
 			display: grid;
-			grid-template-columns: 185px 50px 236px 116px;
+			grid-template-columns: var(--grid-template-columns);
 		}
 
 		& > footer {
 			display: grid;
 			margin-top: 5px;
-			grid-template-rows: repeat(2, 1fr);
-			grid-template-columns: 185px 50px 236px 116px;
+			grid-template-columns: var(--grid-template-columns);
+			grid-template-rows: var(--grid-template-rows-footer);
 
 			& > div#social-media {
 				grid-column: 2 / span 2;
@@ -101,8 +114,14 @@ import Layout from '#layouts/Layout.astro'
 	}
 
 	p {
-		font-size: 24px;
-		line-height: 32px;
+		font-weight: bold;
+		font-size: var(--font-size-p);
+		line-height: var(--line-height-p);
+	}
+
+	h1 {
+		font-size: var(--font-size-h1);
+		line-height: var(--line-height-h1);
 	}
 
 	p,
@@ -110,25 +129,20 @@ import Layout from '#layouts/Layout.astro'
 		letter-spacing: 0.05em;
 	}
 
-	h1 {
-		font-size: 48px;
-		line-height: 1;
-	}
-
 	hr.vertical-line {
 		left: 50%;
-		width: 3px;
 		height: 10px;
 		border-width: 0;
 		position: relative;
-		background-color: black;
+		width: var(--line-width);
+		background-color: light-dark(var(--color-black), var(--color-white));
 	}
 
 	.grouping-lines {
 		height: 60px;
-		border-width: 3px;
 		border-style: solid;
-		border-color: black;
+		border-width: var(--line-width);
+		border-color: light-dark(var(--color-black), var(--color-white));
 
 		&.down {
 			border-bottom-width: 0;
@@ -150,6 +164,7 @@ import Layout from '#layouts/Layout.astro'
 		border-right-width: 0;
 		border-bottom-width: 0;
 	}
+
 	#email-left {
 		grid-row: 1;
 		grid-column: 4;
@@ -159,12 +174,15 @@ import Layout from '#layouts/Layout.astro'
 	}
 
 	[data-visible='false'] {
-		opacity: 0.1;
-		transition: opacity 0.5s ease;
+		opacity: var(--opacity-hidden);
+		transition: opacity var(--transition-duration)
+			var(--transition-timing-function);
 	}
+
 	[data-visible='true'] {
-		opacity: 1;
-		transition: opacity 0.5s ease;
+		opacity: var(--opacity-visible);
+		transition: opacity var(--transition-duration)
+			var(--transition-timing-function);
 	}
 </style>
 
