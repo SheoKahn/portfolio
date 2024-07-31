@@ -6,12 +6,12 @@ import Layout from '#layouts/Layout.astro'
 	<main>
 		<article>
 			<header>
-				<div id="about">
+				<div id="about" data-visible="true">
 					<p>me</p>
 					<hr class="vertical-line" />
 					<div class="grouping-lines down"></div>
 				</div>
-				<div id="projects">
+				<div id="projects" data-visible="true">
 					<p>website</p>
 					<hr class="vertical-line" />
 					<div class="grouping-lines down"></div>
@@ -19,21 +19,23 @@ import Layout from '#layouts/Layout.astro'
 			</header>
 
 			<h1>
-				<span id="name">joseluis</span>
-				<span id="at">@</span>
-				<span id="nick">sheokahn</span>
-				<span id="tlg">.com</span>
+				<span id="name" data-visible="true">joseluis</span>
+				<span id="at" data-visible="true">@</span>
+				<span id="nick" data-visible="true">sheokahn</span>
+				<span id="tlg" data-visible="true">.com</span>
 			</h1>
 
 			<footer>
-				<div id="email-right" class="grouping-lines up"></div>
-				<div id="email-left" class="grouping-lines up"></div>
-				<div id="social-media">
+				<div id="email-right" class="grouping-lines up" data-visible="true">
+				</div>
+				<div id="email-left" class="grouping-lines up" data-visible="true">
+				</div>
+				<div id="social-media" data-visible="true">
 					<div class="grouping-lines up"></div>
 					<hr class="vertical-line" />
 					<p>social media</p>
 				</div>
-				<div id="email">
+				<div id="email" data-visible="true">
 					<div class="grouping-lines up"></div>
 					<hr class="vertical-line" />
 					<p>email</p>
@@ -155,4 +157,109 @@ import Layout from '#layouts/Layout.astro'
 		border-left-width: 0;
 		border-bottom-width: 0;
 	}
+
+	[data-visible='false'] {
+		opacity: 0.1;
+		transition: opacity 0.5s ease;
+	}
+	[data-visible='true'] {
+		opacity: 1;
+		transition: opacity 0.5s ease;
+	}
 </style>
+
+<script>
+	const elements: Record<string, HTMLElement | null> = {
+		about: document.getElementById('about'),
+		projects: document.getElementById('projects'),
+		socialMedia: document.getElementById('social-media'),
+		email: document.getElementById('email'),
+		emailLeft: document.getElementById('email-left'),
+		emailRight: document.getElementById('email-right'),
+		name: document.getElementById('name'),
+		at: document.getElementById('at'),
+		nick: document.getElementById('nick'),
+		tlg: document.getElementById('tlg'),
+	}
+
+	const updateVisibility = (
+		visible: 'true' | 'false',
+		elementsToUpdate: string[] = []
+	): void => {
+		elementsToUpdate.forEach((el) => {
+			if (elements[el]) elements[el].dataset.visible = visible
+		})
+	}
+
+	const addMouseEvents = (
+		element: HTMLElement | null,
+		hideElements: string[] = []
+	): void => {
+		element?.addEventListener('mousemove', () => {
+			updateVisibility('false', hideElements)
+		})
+
+		element?.addEventListener('mouseout', () => {
+			updateVisibility('true', Object.keys(elements))
+		})
+	}
+
+	addMouseEvents(elements.about, [
+		'projects',
+		'socialMedia',
+		'email',
+		'emailRight',
+		'emailLeft',
+		'at',
+		'nick',
+		'tlg',
+	])
+	addMouseEvents(elements.name, [
+		'projects',
+		'socialMedia',
+		'email',
+		'emailRight',
+		'emailLeft',
+		'at',
+		'nick',
+		'tlg',
+	])
+	addMouseEvents(elements.projects, [
+		'about',
+		'socialMedia',
+		'email',
+		'emailRight',
+		'emailLeft',
+		'name',
+		'at',
+	])
+	addMouseEvents(elements.tlg, [
+		'about',
+		'socialMedia',
+		'email',
+		'emailRight',
+		'emailLeft',
+		'name',
+		'at',
+	])
+	addMouseEvents(elements.socialMedia, [
+		'about',
+		'projects',
+		'email',
+		'emailRight',
+		'emailLeft',
+		'name',
+		'tlg',
+	])
+	addMouseEvents(elements.at, [
+		'about',
+		'projects',
+		'email',
+		'emailRight',
+		'emailLeft',
+		'name',
+		'tlg',
+	])
+	addMouseEvents(elements.email, ['about', 'projects', 'socialMedia'])
+	addMouseEvents(elements.nick, ['about', 'projects', 'socialMedia'])
+</script>
