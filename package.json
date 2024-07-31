@@ -19,9 +19,9 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"astro": "4.12.2",
-		"@astrojs/check": "0.8.2",
-		"@fontsource/onest": "5.0.3",
-		"typescript": "5.4.3"
+		"astro": "4.12.3",
+		"@astrojs/check": "0.9.1",
+		"@fontsource/onest": "5.0.4",
+		"typescript": "5.5.4"
 	}
 }
