@@ -45,7 +45,10 @@ This repository follows a structured format with the following folders and files
 ```text
 /portfolio
 ├── public/
-│   └── favicon.svg
+│   ├── robots.txt
+│   ├── sitemap.xml
+│   ├── favicon.svg
+│   └── og-image.png
 ├── src/
 │   ├── env.d.ts
 │   ├── layouts/
@@ -76,7 +79,7 @@ This website is built using the following stack:
 
 -  🚧 [Astro](https://astro.build): A modern static site builder.
 -  📑 [TypeScript](https://www.typescriptlang.org): Provides enhanced syntax for JavaScript.
--  💅 [Tailwind CSS](https://tailwindcss.com): Utilized for styling and design.
+-  🎨 [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS): Custom styling for design.
 -  ✒️ [Font Onest](https://fontsource.org/fonts/onest): Font for typography.
 
 Feel free to explore and contribute! 😊
